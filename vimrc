@@ -18,13 +18,11 @@ noremap <c-l> <esc>viwu
 inoremap <</ <esc>?<<return>lyiw/><return>a</<esc>pa>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 inoremap jk <esc>
 
 " ABBRE
 iabbrev adn and
-iabbrev waht wha
+iabbrev waht what
 
 " OMNICOMPLETE
 filetype plugin on
@@ -39,11 +37,3 @@ autocmd FileType javascript,c nnoremap <buffer> <leader>comm I//<esc>
 
 filetype plugin indent on
 syntax on
-
-
-
-
-
-
-
-
