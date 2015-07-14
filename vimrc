@@ -9,6 +9,14 @@ set ai
 set cursorline
 set hlsearch
 let mapleader = "-"
+set esckeys
+set backspace=indent,eol,start
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
 " nnoremap <leader>d dd
 
 " MAP
