@@ -12,7 +12,7 @@ let mapleader = "-"
 set esckeys
 set backspace=indent,eol,start
 set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
+set directory=~/.vim/tmp
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif

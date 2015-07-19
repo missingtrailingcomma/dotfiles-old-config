@@ -4,7 +4,6 @@ alias sshumncs='ssh dingx292@pulsar.cs.umn.edu'
 alias sshsolaris='ssh dingx292@caesar.cs.umn.edu'
 alias sshserverram64='ssh dingx292@phi07.cselabs.umn.edu'
 alias sshserverram192='ssh dingx292@maximus.cs.umn.edu'
-alias pythonserver8000='python -m SimpleHTTPServer 8000'
 alias ls='ls -G'
 alias la='ls -A'
 alias ll='ls -l'
@@ -13,22 +12,31 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias -- -="cd -"
 alias 700='chmod 700'
 alias reporoot='cd $(git rev-parse --show-toplevel)'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias undopush="git push -f origin HEAD^:master"
+alias v="vim"
+
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
 
 HISTSIZE=5000
 HISTFILESIZE=10000
 shopt -s histappend
 shopt -s cdspell
+shopt -s cdspell
 
-# opening messages
+
 cal | sed "s/.*/ & /;s/ $(date +%e) / [] /"
 echo -e "\\[._.]/\n"
 
-# functions
+
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -73,7 +81,7 @@ ip () {
   echo "---------------------------------------------------"
 }
 
-mkd() {
+md() {
 	mkdir -p "$@" && cd "$_";
 }
 
@@ -98,8 +106,26 @@ dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-# else
-export PS1='\w $ '
+cdf() {
+  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+}
+
+server() {
+	local port="${1:-8000}"
+	open "http://localhost:${port}/"
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+gz() {
+	echo "orig size    (bytes): "
+	cat "$1" | wc -c
+	echo "gzipped size (bytes): "
+	gzip -c "$1" | wc -c
+}
+
+
+export PS1="\[\033[0;31m\]\w\[\033[m\] \$ "
+export PS2="⚡ "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PATH="/usr/local/heroku/bin:$PATH"
