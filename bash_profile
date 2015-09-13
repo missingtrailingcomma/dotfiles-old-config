@@ -13,7 +13,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias --="cd -"
 alias 700='chmod 700'
 alias reporoot='cd $(git rev-parse --show-toplevel)'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
