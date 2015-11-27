@@ -1,6 +1,6 @@
-alias sshumn='ssh dingx292@csel-kh4250-12.cselabs.umn.edu'
+alias sshumn='ssh dingx292@csel-kh1250-12.cselabs.umn.edu'
 alias sshumn32='ssh dingx292@x22-04.cselabs.umn.edu'
-alias sshumncs='ssh dingx292@pulsar.cs.umn.edu'
+alias sshumncs='ssh dingx292@exa.cs.umn.edu'
 alias sshsolaris='ssh dingx292@caesar.cs.umn.edu'
 alias sshserverram64='ssh dingx292@phi07.cselabs.umn.edu'
 alias sshserverram192='ssh dingx292@maximus.cs.umn.edu'
@@ -115,7 +115,7 @@ atomf() {
 }
 
 server() {
-	local port="${1:-8000}"
+	local port="${1:-3000}"
 	open "http://localhost:${port}/"
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
