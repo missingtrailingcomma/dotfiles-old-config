@@ -4,15 +4,25 @@ alias sshumncs='ssh dingx292@exa.cs.umn.edu'
 alias sshsolaris='ssh dingx292@caesar.cs.umn.edu'
 alias sshserverram64='ssh dingx292@phi07.cselabs.umn.edu'
 alias sshserverram192='ssh dingx292@maximus.cs.umn.edu'
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 alias ls='ls -G'
 alias la='ls -A'
 alias ll='ls -l'
 alias doc='cd ~/Documents'
-alias down='cd ~/Downloads'
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+
+alias h='history | tail'
+
+alias week='date +%V'
+
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g;'
+
 alias 700='chmod 700'
 alias reporoot='cd $(git rev-parse --show-toplevel)'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
@@ -29,7 +39,6 @@ done
 HISTSIZE=5000
 HISTFILESIZE=10000
 shopt -s histappend
-shopt -s cdspell
 shopt -s cdspell
 
 
@@ -106,6 +115,23 @@ dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
+# Create a git.io short URL
+function gitio() {
+	if [ -z "${1}" -o -z "${2}" ]; then
+		echo "Usage: \`gitio slug url\`";
+		return 1;
+	fi;
+	curl -i http://git.io/ -F "url=${2}" -F "code=${1}";
+}
+
 cdf() {
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
@@ -128,6 +154,22 @@ gz() {
 }
 
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history;
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
 
 set_prompts() {
 
