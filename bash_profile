@@ -32,6 +32,8 @@ alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 alias undopush="git push -f origin HEAD^:master"
 alias v="vim"
 
+source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
