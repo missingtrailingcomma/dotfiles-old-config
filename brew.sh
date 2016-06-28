@@ -40,12 +40,10 @@ brew install lynx
 ## gui
 brew cask install vlc
 brew cask install fugu
-brew cask install atom-beta
 brew cask install imageoptim
 brew cask install google-chrome-canary
 brew cask install firefoxdeveloperedition
 # brew cask install webkit-nightly
-brew cask install shortcat
 brew cask install musicbrainz-picard
 brew cask install cocoarestclient
 brew cask install gpgtools
