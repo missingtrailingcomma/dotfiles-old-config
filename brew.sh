@@ -8,6 +8,10 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+# taps
+brew tap homebrew/versions
+brew tap caskroom/cask
+
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -17,7 +21,6 @@ ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew tap homebrew/versions
 brew install bash-completion2
 
 # js stuff
@@ -34,14 +37,13 @@ brew install youtube-dl
 brew install imagemagick
 brew install tor
 brew install tree
-brew install lynx
+brew install aria2
 
 ## gui
 brew cask install vlc
 brew cask install fugu
-brew cask install imageoptim
-brew cask install google-chrome-canary
 brew cask install spectacle
+brew cask install google-chrome
 
 ## quicklook
 brew cask install qlstephen
