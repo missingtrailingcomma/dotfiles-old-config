@@ -20,19 +20,18 @@ brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
 # js stuff
 brew install node
 brew install flow
-brew install watchman
 brew install phantomjs
 
-brew install imagemagick
+# download util
+# Install `wget` with IRI support.
+brew install wget --with-iri
 brew install youtube-dl
-brew install leiningen
-brew install terminal-notifier
+
+# other util
+brew install imagemagick
 brew install tor
 brew install tree
 brew install lynx
@@ -42,11 +41,6 @@ brew cask install vlc
 brew cask install fugu
 brew cask install imageoptim
 brew cask install google-chrome-canary
-brew cask install firefoxdeveloperedition
-# brew cask install webkit-nightly
-brew cask install musicbrainz-picard
-brew cask install cocoarestclient
-brew cask install gpgtools
 brew cask install spectacle
 
 ## quicklook
