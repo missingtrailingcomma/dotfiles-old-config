@@ -138,11 +138,6 @@ gz() {
 	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
 
-# Run `dig` and display the most useful info
-function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer;
-}
-
 # UTF-8-encode a string of Unicode symbols
 function escape() {
 	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u);
