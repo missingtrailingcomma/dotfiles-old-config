@@ -26,7 +26,6 @@ brew install bash-completion2
 # js stuff
 brew install node
 brew install flow
-brew install phantomjs
 
 # download util
 # Install `wget` with IRI support.
@@ -41,7 +40,6 @@ brew install aria2
 
 ## gui
 brew cask install vlc
-brew cask install fugu
 brew cask install spectacle
 brew cask install google-chrome
 
